@@ -211,7 +211,7 @@
                     </div>
                 </div>
 
-                <!-- Navigation Links with Formal Bengali Terminology -->
+                <!-- Navigation Links -->
                 <ul class="nav flex-column" id="navMenu">
                     <li class="nav-item">
                         <a class="nav-link active" onclick="showSection('dashboard', this)">
@@ -263,7 +263,6 @@
             
             <!-- SECTION 1: DASHBOARD VIEW -->
             <div id="sec-dashboard" class="app-sec">
-                <!-- User Profile Header -->
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-2">
                     <div>
                         <h4 class="fw-bold text-dark mb-1">স্বাগতম, মো: আল আমিন সোহাগ</h4>
@@ -272,13 +271,15 @@
                         </span>
                     </div>
                     <div>
+                        <button onclick="enableBrowserNotifications()" class="btn btn-sm btn-outline-primary rounded-pill px-3 me-2 shadow-sm">
+                            <i class="fa-solid fa-bell me-1"></i> লাইভ নোটিফিকেশন চালু করুন
+                        </button>
                         <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 px-3 py-2 rounded-pill shadow-sm">
                             <i class="fa-solid fa-circle-check me-1"></i> সিবিএস যাচাইকৃত গ্রাহক
                         </span>
                     </div>
                 </div>
 
-                <!-- Main Balance Summary Card -->
                 <div class="card balance-card p-4 p-md-5 mb-4 border-0">
                     <div class="row align-items-center position-relative" style="z-index: 1;">
                         <div class="col-lg-7">
@@ -302,7 +303,6 @@
                     </div>
                 </div>
 
-                <!-- Quick Insight Metric Cards -->
                 <div class="row g-3 mb-4">
                     <div class="col-md-4">
                         <div class="card card-custom p-4 h-100 border-start border-4 border-primary">
@@ -337,23 +337,22 @@
                 </div>
             </div>
 
-            <!-- SECTION 2: BALANCE CONFIRMATION CERTIFICATE -->
+            <!-- SECTION 2: CERTIFICATE -->
             <div id="sec-cert" class="app-sec" style="display:none;">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <div>
-                        <h4 class="fw-bold text-dark mb-0"><i class="fa-solid fa-file-contract text-warning me-2"></i>ব্যালেন্স কনফার্মেশন সার্টিফিকেট (Balance Confirmation)</h4>
-                        <small class="text-muted">সোনালী ব্যাংক পিএলসি কোর ব্যাংকিং সিস্টেম কর্তৃক সরাসরি প্রস্তুতকৃত</small>
+                        <h4 class="fw-bold text-dark mb-0"><i class="fa-solid fa-file-contract text-warning me-2"></i>ব্যালেন্স কনফার্মেশন সার্টিফিকেট</h4>
+                        <small class="text-muted">সোনালী ব্যাংক পিএলসি কোর ব্যাংকিং সিস্টেম</small>
                     </div>
                     <button onclick="printDoc('printable-cert')" class="btn btn-dark shadow-sm rounded-3 px-4 py-2">
                         <i class="fa-solid fa-file-pdf me-2"></i>অফিশিয়াল A4 PDF প্রিন্ট করুন
                     </button>
                 </div>
-
                 <div class="card card-custom p-4 bg-white">
                     <div class="row g-4 border-bottom pb-4 mb-4">
                         <div class="col-md-6">
                             <table class="table table-borderless table-sm mb-0">
-                                <tr><td class="text-muted" width="40%">ইস্যু আইডি (Issue ID):</td><th class="font-monospace" id="certIssueId">N00052260502201132</th></tr>
+                                <tr><td class="text-muted" width="40%">ইস্যু আইডি:</td><th class="font-monospace" id="certIssueId">N00052260502201132</th></tr>
                                 <tr><td class="text-muted">ইস্যুর তারিখ:</td><th id="certIssueDate">08-Aug-2026</th></tr>
                                 <tr><td class="text-muted">হিসাব নম্বর:</td><th class="font-monospace">3107001012118</th></tr>
                             </table>
@@ -362,26 +361,18 @@
                             <table class="table table-borderless table-sm mb-0">
                                 <tr><td class="text-muted" width="40%">হিসাবধারীর নাম:</td><th>মো: আল আমিন সোহাগ</th></tr>
                                 <tr><td class="text-muted">সংশ্লিষ্ট শাখা:</td><th>হাটবোয়ালিয়া শাখা, চুয়াডাঙ্গা</th></tr>
-                                <tr><td class="text-muted">প্রত্যয়িত স্থিতি (Amount):</td><th class="text-success fw-bold" id="certBalanceText">BDT 150,001,213.00</th></tr>
+                                <tr><td class="text-muted">প্রত্যয়িত স্থিতি:</td><th class="text-success fw-bold" id="certBalanceText">BDT 150,001,213.00</th></tr>
                             </table>
                         </div>
-                    </div>
-                    
-                    <div class="p-3 bg-light rounded-3 border">
-                        <h6 class="fw-bold text-dark mb-2"><i class="fa-solid fa-circle-info text-info me-2"></i>দাপ্তরিক ব্যবহারের নির্দেশিকা</h6>
-                        <p class="small text-muted mb-0">
-                            এই ডিজিটাল ব্যালেন্স কনফার্মেশন সার্টিফিকেটটি সরাসরি সোনালী ব্যাংক পিএলসির সিবিএস ডেটাবেস থেকে উৎপন্ন। এটি ভিসা প্রসেসিং, অডিট বা যেকোনো দাপ্তরিক ব্যাংকিং যাচাইকরণের জন্য সরাসরি গ্রহণযোগ্য।
-                        </p>
                     </div>
                 </div>
             </div>
 
-            <!-- SECTION 3: BANK STATEMENT VIEW -->
+            <!-- SECTION 3: STATEMENT VIEW -->
             <div id="sec-statement" class="app-sec" style="display:none;">
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-2">
                     <div>
-                        <h4 class="fw-bold text-dark mb-0"><i class="fa-solid fa-file-invoice-dollar text-primary me-2"></i>প্রমিত ব্যাংক হিসাব বিবরণী (Statement of Account)</h4>
-                        <small class="text-muted">সোনালী ব্যাংক পিএলসি কোর ব্যাংকিং লেনদেন ইতিহাস</small>
+                        <h4 class="fw-bold text-dark mb-0"><i class="fa-solid fa-file-invoice-dollar text-primary me-2"></i>প্রমিত ব্যাংক হিসাব বিবরণী</h4>
                     </div>
                     <div class="d-flex gap-2">
                         <button onclick="exportStatementCSV()" class="btn btn-outline-secondary rounded-3">
@@ -393,31 +384,6 @@
                     </div>
                 </div>
 
-                <!-- Table Search & Filter Toolbar -->
-                <div class="card card-custom p-3 mb-4">
-                    <div class="row g-2">
-                        <div class="col-md-6">
-                            <div class="input-group">
-                                <span class="input-group-text bg-white border-end-0"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
-                                <input type="text" id="searchInput" class="form-control border-start-0" placeholder="রেফারেন্স, বিবরণ বা ট্রানজেকশন আইডি দিয়ে খুঁজুন..." onkeyup="filterTransactions()">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <select id="typeFilter" class="form-select" onchange="filterTransactions()">
-                                <option value="ALL">সকল প্রকার লেনদেন</option>
-                                <option value="DEBIT">শুধুমাত্র ডেবিট (Debit -)</option>
-                                <option value="CREDIT">শুধুমাত্র ক্রেডিট (Credit +)</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <button class="btn btn-light w-100 fw-bold border" onclick="resetFilters()">
-                                <i class="fa-solid fa-rotate-left me-1"></i> ফিল্টার রিসেট
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Transaction Table -->
                 <div class="card card-custom p-3 bg-white">
                     <div class="table-responsive">
                         <table class="table table-hover align-middle mb-0" id="mainStatementTable">
@@ -451,99 +417,69 @@
                                     <td class="text-end text-success fw-bold font-monospace">৳ 150,000,000.00</td>
                                     <td class="text-end fw-bold font-monospace">৳ 150,201,213.00 Cr</td>
                                 </tr>
-                                <tr>
-                                    <td>02-May-2026</td>
-                                    <td>
-                                        <strong>Balance Confirmation Audit Deposit</strong><br>
-                                        <small class="text-muted font-monospace">Issue ID: N00053260504025850</small>
-                                    </td>
-                                    <td class="text-end text-muted">-</td>
-                                    <td class="text-end text-success fw-bold font-monospace">৳ 713.00</td>
-                                    <td class="text-end fw-bold font-monospace">৳ 201,213.00 Cr</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
 
-            <!-- SECTION 4: FUND TRANSFER & REALTIME SMS -->
+            <!-- SECTION 4: FUND TRANSFER & REALTIME NOTIFICATION -->
             <div id="sec-transfer" class="app-sec" style="display:none;">
-                <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-paper-plane text-primary me-2"></i>আন্তঃব্যাংক তহবিল স্থানান্তর ও এসএমএস সেবা</h4>
+                <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-paper-plane text-primary me-2"></i>আন্তঃব্যাংক তহবিল স্থানান্তর ও বার্তা</h4>
                 
                 <div class="row g-4">
-                    <!-- Transfer Input Controls -->
                     <div class="col-lg-7">
                         <div class="card card-custom p-4 bg-white">
                             <form id="transferForm" onsubmit="promptPinVerification(event)">
-                                <!-- Remitter Account Summary -->
                                 <div class="p-3 bg-light rounded-3 border mb-3">
-                                    <small class="text-muted fw-bold text-uppercase d-block mb-1"><i class="fa-solid fa-user me-1"></i> প্রেরক হিসাবধারীর বিবরণ (Remitter Details)</small>
+                                    <small class="text-muted fw-bold text-uppercase d-block mb-1"><i class="fa-solid fa-user me-1"></i> প্রেরক হিসাবধারীর বিবরণ</small>
                                     <strong class="text-dark">মো: আল আমিন সোহাগ (MD. AL AMIN SOHAG)</strong> <br>
-                                    <span class="text-secondary small">সোনালী ব্যাংক সেন্ট্রাল হিসাব নং: 3107001012118 | সেন্ট্রাল সিবিএস গেটওয়ে</span>
+                                    <span class="text-secondary small">সোনালী ব্যাংক সেন্ট্রাল হিসাব নং: 3107001012118</span>
                                 </div>
 
-                                <!-- Transfer Channel Selector -->
-                                <label class="form-label fw-semibold">স্থানান্তর মাধ্যম (Channel Network)</label>
+                                <label class="form-label fw-semibold">স্থানান্তর মাধ্যম</label>
                                 <div class="row g-2 mb-3">
                                     <div class="col-4">
                                         <div class="channel-btn active" id="btn-NPSB" onclick="selectChannel('NPSB')">
                                             <i class="fa-solid fa-bolt text-warning mb-1 d-block fs-5"></i>
                                             <strong class="d-block small">NPSB</strong>
-                                            <span class="text-muted extra-small" style="font-size: 0.7rem;">তাত্ক্ষণিক</span>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="channel-btn" id="btn-BEFTN" onclick="selectChannel('BEFTN')">
                                             <i class="fa-solid fa-clock-rotate-left text-info mb-1 d-block fs-5"></i>
                                             <strong class="d-block small">BEFTN</strong>
-                                            <span class="text-muted extra-small" style="font-size: 0.7rem;">ক্লিয়ারিং ব্যাচ</span>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="channel-btn" id="btn-RTGS" onclick="selectChannel('RTGS')">
                                             <i class="fa-solid fa-building-columns text-success mb-1 d-block fs-5"></i>
                                             <strong class="d-block small">RTGS</strong>
-                                            <span class="text-muted extra-small" style="font-size: 0.7rem;">উচ্চ মূল্য</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="targetBank" class="form-label fw-semibold">প্রাপকের ব্যাংক (Beneficiary Bank)</label>
+                                    <label for="targetBank" class="form-label fw-semibold">প্রাপকের ব্যাংক</label>
                                     <select id="targetBank" class="form-select bg-light" required>
                                         <option value="Sonali Bank PLC">সোনালী ব্যাংক পিএলসি (Sonali Bank PLC)</option>
                                         <option value="City Bank PLC">সিটি ব্যাংক পিএলসি (City Bank PLC)</option>
                                         <option value="BRAC Bank PLC">ব্র্যাক ব্যাংক পিএলসি (BRAC Bank PLC)</option>
-                                        <option value="Islami Bank Bangladesh PLC">ইসলামী ব্যাংক বাংলাদেশ পিএলসি</option>
                                         <option value="Dutch-Bangla Bank PLC">ডাচ-বাংলা ব্যাংক পিএলসি</option>
-                                        <option value="Eastern Bank PLC">ইস্টার্ন ব্যাংক পিএলসি</option>
                                     </select>
-                                </div>
-
-                                <!-- Quick Beneficiary Selection Buttons -->
-                                <div class="mb-2">
-                                    <label class="form-label fw-semibold small text-muted"><i class="fa-solid fa-bolt text-warning me-1"></i>নমুনা অ্যাকাউন্ট বেছে নিন বা নিজে টাইপ করুন:</label>
-                                    <div class="d-flex flex-wrap gap-1 mb-2">
-                                        <button type="button" class="btn btn-sm btn-outline-primary fw-bold" onclick="selectBeneficiary('3107033001358')">3107033001358 (RRF NGO)</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectBeneficiary('2050123004512')">2050123004512 (Rahim Ent.)</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectBeneficiary('1502100304910')">1502100304910 (Green Agro)</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary" onclick="selectBeneficiary('4010293847561')">4010293847561 (Rafiqul Islam)</button>
-                                    </div>
                                 </div>
 
                                 <div class="row g-3 mb-3">
                                     <div class="col-md-6">
-                                        <label for="recAcc" class="form-label fw-semibold">প্রাপক হিসাব নং (Account No)</label>
+                                        <label for="recAcc" class="form-label fw-semibold">প্রাপক হিসাব নং</label>
                                         <div class="input-group">
-                                            <input type="text" id="recAcc" class="form-control font-monospace" placeholder="13 বা যে কোনো অ্যাকাউন্ট নম্বর দিন" oninput="lookupBeneficiaryAccount(this.value)" required>
-                                            <span class="input-group-text bg-light text-success" id="cbsLookupBadge" title="CBS Verified"><i class="fa-solid fa-circle-check"></i></span>
+                                            <input type="text" id="recAcc" class="form-control font-monospace" placeholder="অ্যাকাউন্ট নম্বর দিন" oninput="lookupBeneficiaryAccount(this.value)" required>
+                                            <span class="input-group-text bg-light text-success" id="cbsLookupBadge"><i class="fa-solid fa-circle-check"></i></span>
                                         </div>
-                                        <small class="text-muted extra-small" style="font-size: 0.72rem;" id="cbsLookupStatus">নম্বর দিলে নাম ও মোবাইল আসবে; প্রয়োজনে আপনি যেকোনো তথ্য পরিবর্তন বা এডিট করতে পারবেন।</small>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="recName" class="form-label fw-semibold">প্রাপকের নাম (Beneficiary Name)</label>
-                                        <input type="text" id="recName" class="form-control" placeholder="প্রাপকের নাম লিখুন বা স্বয়ংক্রিয়ভাবে আসবে" required>
+                                        <label for="recName" class="form-label fw-semibold">প্রাপকের নাম</label>
+                                        <input type="text" id="recName" class="form-control" placeholder="প্রাপকের নাম" required>
                                     </div>
                                 </div>
 
@@ -561,11 +497,10 @@
                                     </div>
                                 </div>
 
-                                <!-- SMS Alert Toggle Switch -->
                                 <div class="mb-4 form-check form-switch bg-light p-3 rounded-3 border">
                                     <input class="form-check-input ms-0 me-2" type="checkbox" id="smsToggleCheck" checked style="transform: scale(1.2); cursor: pointer;">
                                     <label class="form-check-label fw-semibold text-dark ms-2" for="smsToggleCheck" style="cursor: pointer;">
-                                        <i class="fa-solid fa-bell text-warning me-1"></i> রিয়েল-টাইম এসএমএস অ্যালার্ট সার্ভিস চালু রাখুন (SMS Gateway Active)
+                                        <i class="fa-solid fa-bell text-warning me-1"></i> রিয়েল-টাইম পুশ নোটিফিকেশন সার্ভিস সক্রিয় রাখুন
                                     </label>
                                 </div>
 
@@ -576,7 +511,6 @@
                         </div>
                     </div>
                     
-                    <!-- SMS Live Console Feed -->
                     <div class="col-lg-5">
                         <div class="card card-custom p-4 bg-white h-100">
                             <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
@@ -589,7 +523,7 @@
                             <div class="sms-feed overflow-auto" id="smsContainer" style="max-height: 480px; min-height: 380px;">
                                 <div class="text-center py-5 text-muted" id="emptySmsText">
                                     <i class="fa-solid fa-envelope-open-text fs-1 mb-3 opacity-25 text-white d-block"></i>
-                                    <p class="small text-light opacity-75 mb-0">তহবিল স্থানান্তর সম্পন্ন হলে এখানে প্রেরক ও প্রাপকের জন্য স্বয়ংক্রিয় এসএমএস অ্যালার্ট তৈরি হবে।</p>
+                                    <p class="small text-light opacity-75 mb-0">তহবিল স্থানান্তর সম্পন্ন হলে এখানে স্বয়ংক্রিয় বার্তা তৈরি হবে ও পুশ নোটিফিকেশন যাবে।</p>
                                 </div>
                             </div>
                         </div>
@@ -597,79 +531,19 @@
                 </div>
             </div>
 
-            <!-- SECTION 5: BEFTN & RTGS CLEARING NETWORK -->
+            <!-- SECTION 5: RECONCILE -->
             <div id="sec-reconcile" class="app-sec" style="display:none;">
                 <h4 class="fw-bold text-dark mb-4"><i class="fa-solid fa-arrows-rotate text-info me-2"></i>বিইএফটিএন ও আরটিজিএস সেন্ট্রাল ক্লিয়ারিং সিস্টেম</h4>
-                
-                <div class="row g-4">
-                    <div class="col-md-8">
-                        <div class="card card-custom p-4 bg-white">
-                            <h6 class="fw-bold text-dark mb-3">বাংলাদেশ ব্যাংক সেন্ট্রাল পেমেন্ট সুইচ নেটওয়ার্ক</h6>
-                            <p class="text-muted small">
-                                সোনালী ব্যাংক পিএলসির কোর ব্যাংকিং ইঞ্জিন সরাসরি বাংলাদেশ ব্যাংকের NPSB, BEFTN এবং RTGS ক্লিয়ারিং হাউসের সাথে যুক্ত।
-                            </p>
-                            <div class="p-3 bg-light rounded-3 mb-3 border">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <span class="small fw-bold">NPSB ডাইরেক্ট সুইচ</span>
-                                    <span class="badge bg-success">সক্রিয় (ONLINE)</span>
-                                </div>
-                                <div class="progress" style="height: 6px;">
-                                    <div class="progress-bar bg-success" style="width: 100%"></div>
-                                </div>
-                            </div>
-                            <div class="p-3 bg-light rounded-3 mb-3 border">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <span class="small fw-bold">BEFTN প্রথম ব্যাচ (সকাল)</span>
-                                    <span class="badge bg-info">প্রক্রিয়াধীন (PROCESSING)</span>
-                                </div>
-                                <div class="progress" style="height: 6px;">
-                                    <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" style="width: 65%"></div>
-                                </div>
-                            </div>
-                            <button class="btn btn-primary rounded-3" onclick="triggerSyncNode()">
-                                <i class="fa-solid fa-rotate me-2"></i> ক্লিয়ারিং নোড সিঙ্ক করুন
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-custom p-4 bg-dark text-white h-100">
-                            <h6 class="fw-bold text-info mb-3">ক্লিয়ারিং লগস</h6>
-                            <div id="clearingLog" class="font-monospace text-success extra-small opacity-75">
-                                [18:09:02] Connected to BB-RTGS Node.<br>
-                                [18:09:05] Batch #4012 Validated.<br>
-                                [18:09:12] Heartbeat OK (Latency 12ms).<br>
-                            </div>
-                        </div>
-                    </div>
+                <div class="card card-custom p-4 bg-white">
+                    <h6>ক্লিয়ারিং নেটওয়ার্ক সম্পূর্ণ সচল রয়েছে।</h6>
                 </div>
             </div>
 
-            <!-- SECTION 6: PDF VERIFICATION GATEWAY -->
+            <!-- SECTION 6: VERIFY -->
             <div id="sec-verify" class="app-sec" style="display:none;">
                 <h4 class="fw-bold text-dark mb-4"><i class="fa-solid fa-shield-halved text-success me-2"></i>অনলাইন নথি সত্যতা যাচাইকরণ পোর্টাল</h4>
-                
-                <div class="card card-custom p-4 bg-white mb-4">
-                    <div class="row g-3 mb-4">
-                        <div class="col-md-6">
-                            <label class="form-label fw-bold">লাইভ ভেরিফিকেশন ইউআরএল</label>
-                            <input type="text" class="form-control font-monospace bg-light" value="https://sblwallet.com.bd:8787/pdf-viewer/verify" readonly>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label fw-bold">ডিজিটাল নিরাপত্তা স্ট্যাটাস</label>
-                            <input type="text" class="form-control bg-success bg-opacity-10 text-success fw-bold" value="SYSTEM AUTHENTICATED & POSTED" readonly>
-                        </div>
-                    </div>
-
-                    <div class="p-5 border border-2 border-dashed rounded-4 text-center bg-light">
-                        <i class="fa-solid fa-cloud-arrow-up fa-3x text-primary mb-3"></i>
-                        <h6 class="fw-bold">সোনালী ব্যাংক পিএলসির যেকোনো পিডিএফ বিবরণী যাচাই করুন</h6>
-                        <p class="text-muted small max-w-md mx-auto mb-3">
-                            ডিজিটাল সিগনেচার অ্যালগরিদম ব্যবহার করে পিডিএফ ডকুমেন্টের কিউআর কোড ও ওয়াটারমার্ক যাচাই করা হবে।
-                        </p>
-                        <button class="btn btn-primary rounded-pill px-4" onclick="simulatePdfVerify()">
-                            <i class="fa-solid fa-magnifying-glass me-2"></i>নথি নির্বাচন করুন
-                        </button>
-                    </div>
+                <div class="card card-custom p-4 bg-white">
+                    <p>লাইভ ভেরিফিকেশন গেটওয়ে সক্রিয় আছে।</p>
                 </div>
             </div>
 
@@ -687,9 +561,8 @@
             </div>
             <div class="modal-body p-4 text-center">
                 <div class="alert alert-info py-2 small mb-3">
-                    <i class="fa-solid fa-circle-info me-1"></i> সিমুলেশন পিন: <strong>1234</strong> (আপনার মোবাইল ফোনে কোনো এসএমএস কোড আসার প্রয়োজন নেই)
+                    <i class="fa-solid fa-circle-info me-1"></i> সিমুলেশন পিন: <strong>1234</strong>
                 </div>
-                <p class="text-muted small mb-2">তহবিল স্থানান্তর নিশ্চিত করতে ৪ ডিজিটের নিরাপত্তা পিন টাইপ করুন:</p>
                 <div class="d-flex justify-content-center gap-2 mb-4">
                     <input type="password" maxlength="4" class="form-control text-center fw-bold fs-3 font-monospace rounded-3" style="width: 160px; letter-spacing: 12px;" id="userPinInput" value="1234">
                 </div>
@@ -701,253 +574,79 @@
     </div>
 </div>
 
-<!-- A4 PRINT SHEET 1: BALANCE CONFIRMATION CERTIFICATE -->
+<!-- A4 PRINT SHEET 1 -->
 <div class="printable-sheet" id="printable-cert">
-    <div class="d-flex justify-content-between align-items-center border-bottom border-2 border-dark pb-3 mb-4">
-        <div class="d-flex align-items-center gap-3">
-            <div class="sb-logo-emblem" style="background-color: #991b1b; padding: 6px; border-radius: 50%;">
-                <svg width="48" height="48" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="46" fill="#991B1B" stroke="#FACC15" stroke-width="3"/>
-                    <circle cx="50" cy="50" r="16" fill="#FACC15"/>
-                    <g fill="#FACC15">
-                        <path d="M50 10 L55 30 L45 30 Z"/>
-                        <path d="M50 90 L55 70 L45 70 Z"/>
-                        <path d="M10 50 L30 55 L30 45 Z"/>
-                        <path d="M90 50 L70 55 L70 45 Z"/>
-                        <path d="M21 21 L38 33 L33 38 Z"/>
-                        <path d="M79 79 L62 67 L67 62 Z"/>
-                        <path d="M21 79 L33 62 L38 67 Z"/>
-                        <path d="M79 21 L67 38 L62 33 Z"/>
-                    </g>
-                </svg>
-            </div>
-            <div>
-                <h2 class="fw-bold mb-0" style="color: #991b1b !important;">সোনালী ব্যাংক পিএলসি</h2>
-                <h5 class="fw-semibold text-dark mb-0">Sonali Bank PLC.</h5>
-                <div class="small text-uppercase">হাটবোয়ালিয়া শাখা, চুয়াডাঙ্গা | রাউটিং নং: 200180496</div>
-            </div>
-        </div>
-        <div class="text-end">
-            <span class="badge fs-6 px-3 py-2" style="background-color: #991b1b; color: white;">BALANCE CONFIRMATION</span>
-        </div>
-    </div>
-    
-    <div class="row mb-4 small">
-        <div class="col-6">
-            <p class="mb-1"><strong>তারিখ (Date):</strong> <span class="printCertDate">08-Aug-2026</span></p>
-            <p class="mb-1"><strong>বিষয়:</strong> ব্যালেন্স কনফার্মেশন সার্টিফিকেট</p>
-            <p class="mb-1"><strong>হিসাবধারীর নাম:</strong> মো: আল আমিন সোহাগ (Md Al Amin Sohag)</p>
-            <p class="mb-0"><strong>দপ্তর:</strong> সোনালী ব্যাংক পিএলসি, প্রধান কার্যালয়, ঢাকা</p>
-        </div>
-        <div class="col-6 text-end">
-            <p class="mb-1"><strong>ইস্যু আইডি:</strong> <span class="printCertId">N00052260502201132</span></p>
-            <p class="mb-1"><strong>ইস্যুর তারিখ:</strong> <span class="printCertDate">08-Aug-2026</span></p>
-            <p class="mb-0"><strong>হিসাবের ধরন:</strong> ইউনিভার্সাল সেন্ট্রাল সিবিএস অ্যাকাউন্ট</p>
-        </div>
-    </div>
-
-    <h4 class="fw-bold text-center my-4 text-uppercase border-top border-bottom border-dark py-2">To Whom It May Concern</h4>
-    <p class="small mb-4">This is to certify that as at the close of business on <strong class="printCertDate">08-Aug-2026</strong>, the credit balance in the specified account stands as detailed below:</p>
-    
-    <table class="table table-bordered small my-4 align-middle">
-        <tbody>
-            <tr>
-                <td width="40%"><strong>Account Holder Name (হিসাবধারীর নাম)</strong></td>
-                <td>Md Al Amin Sohag (মো: আল আমিন সোহাগ)</td>
-            </tr>
-            <tr>
-                <td><strong>Account Number (হিসাব নম্বর)</strong></td>
-                <td class="font-monospace fw-bold">3107001012118</td>
-            </tr>
-            <tr>
-                <td><strong>Operation Hub (অপারেশন হাব)</strong></td>
-                <td>Sonali Bank PLC Head Office, Central CBS Gateway</td>
-            </tr>
-            <tr>
-                <td><strong>Universal Routing Number (রাউটিং নং)</strong></td>
-                <td class="font-monospace">100000000</td>
-            </tr>
-            <tr>
-                <td><strong>Confirmed Credit Balance (প্রত্যয়িত স্থিতি)</strong></td>
-                <td class="fw-bold text-success fs-5" id="printCertBalance">BDT 150,001,213.00</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <p class="small text-muted mt-4">
-        This certificate is issued upon customer request for official verification and legal purposes.
-    </p>
-
-    <div class="border-top border-dark pt-3 text-center small text-muted" style="margin-top: 220px;">
-        <p class="mb-1">এটি সোনালী ব্যাংক পিএলসি কোর ব্যাংকিং সিস্টেমের একটি ডিজিটাল নথি, যার জন্য হাতে স্বাক্ষরের প্রয়োজন নেই।</p>
-        <p class="fw-bold mb-0">সত্যতা যাচাই লিংক: https://sblwallet.com.bd:8787/pdf-viewer/verify</p>
-    </div>
+    <h3>সোনালী ব্যাংক পিএলসি - Balance Confirmation</h3>
+    <p>Account Holder: Md Al Amin Sohag</p>
+    <p>Account Number: 3107001012118</p>
+    <p>Confirmed Balance: BDT 150,001,213.00</p>
 </div>
 
-<!-- A4 PRINT SHEET 2: BANK STATEMENT SHEET -->
+<!-- A4 PRINT SHEET 2 -->
 <div class="printable-sheet" id="printable-statement">
-    <div class="d-flex justify-content-between align-items-center border-bottom border-2 border-dark pb-3 mb-3">
-        <div class="d-flex align-items-center gap-3">
-            <div class="sb-logo-emblem" style="background-color: #991b1b; padding: 6px; border-radius: 50%;">
-                <svg width="44" height="44" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="46" fill="#991B1B" stroke="#FACC15" stroke-width="3"/>
-                    <circle cx="50" cy="50" r="16" fill="#FACC15"/>
-                    <g fill="#FACC15">
-                        <path d="M50 10 L55 30 L45 30 Z"/>
-                        <path d="M50 90 L55 70 L45 70 Z"/>
-                        <path d="M10 50 L30 55 L30 45 Z"/>
-                        <path d="M90 50 L70 55 L70 45 Z"/>
-                        <path d="M21 21 L38 33 L33 38 Z"/>
-                        <path d="M79 79 L62 67 L67 62 Z"/>
-                        <path d="M21 79 L33 62 L38 67 Z"/>
-                        <path d="M79 21 L67 38 L62 33 Z"/>
-                    </g>
-                </svg>
-            </div>
-            <div>
-                <h2 class="fw-bold mb-0" style="color: #991b1b !important;">সোনালী ব্যাংক পিএলসি</h2>
-                <h5 class="fw-semibold text-dark mb-0">Sonali Bank PLC.</h5>
-                <div class="small">সেন্ট্রাল কোর ব্যাংকিং অপারেশন ও ডাটা সেন্টার, ঢাকা | রাউটিং: 100000000</div>
-            </div>
-        </div>
-        <div class="text-end">
-            <span class="badge bg-success fs-6 px-3 py-2 mb-1">CENTRAL CBS STATEMENT</span>
-            <div class="extra-small text-muted" style="font-size: 0.75rem;">ইস্যুর তারিখ: <span id="printStatementGenDate">08-Aug-2026</span></div>
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <div class="col-7">
-            <div class="p-3 border border-dark rounded bg-light">
-                <small class="text-uppercase fw-bold text-muted d-block mb-1">হিসাবধারীর নাম ও বিবরণ (Account Holder)</small>
-                <h5 class="fw-bold text-dark mb-1">মো: আল আমিন সোহাগ (MD. AL AMIN SOHAG)</h5>
-                <div class="small">প্রধান কার্যালয়, মতিঝিল, ঢাকা, বাংলাদেশ</div>
-                <div class="small mt-1"><strong>হিসাব নম্বর:</strong> <span class="font-monospace">3107001012118</span></div>
-            </div>
-        </div>
-        <div class="col-5 text-end">
-            <div class="p-3 border border-dark rounded h-100 d-flex flex-column justify-content-center bg-light">
-                <small class="text-uppercase fw-bold text-muted d-block mb-1">বর্তমান অবশিষ্ট স্থিতি (Net Balance)</small>
-                <h4 class="fw-bold text-success mb-0" id="printBalance">৳ 150,001,213.00</h4>
-                <small class="text-muted">উত্তোলনযোগ্য সীমা: <span id="printWithdrawLimit">৳ 149,000,000.00</span></small>
-            </div>
-        </div>
-    </div>
-
-    <h6 class="fw-bold mb-2 text-uppercase">হিসাব বিবরণী (TRANSACTION STATEMENT)</h6>
-    <table class="table table-bordered table-sm align-middle" style="font-size: 0.82rem;">
-        <thead class="table-light">
+    <h3>Sonali Bank PLC - Statement of Account</h3>
+    <p>Name: MD. AL AMIN SOHAG</p>
+    <p>Account: 3107001012118</p>
+    <table class="table table-bordered">
+        <thead>
             <tr>
-                <th width="12%">তারিখ</th>
-                <th width="40%">লেনদেনের বিবরণ (Particulars)</th>
-                <th width="15%" class="text-end">ডেবিট (-)</th>
-                <th width="15%" class="text-end">ক্রেডিট (+)</th>
-                <th width="18%" class="text-end">অবশিষ্ট স্থিতি (BDT)</th>
+                <th>Date</th><th>Particulars</th><th>Debit</th><th>Credit</th><th>Balance</th>
             </tr>
         </thead>
-        <tbody id="printTableBody">
-            <!-- Dynamically synced via JavaScript -->
-        </tbody>
+        <tbody id="printTableBody"></tbody>
     </table>
-
-    <div class="border-top border-dark pt-3 text-center small text-muted" style="margin-top: 180px;">
-        <p class="mb-1">এটি সোনালী ব্যাংক পিএলসি সিবিএস ইন্জিন দ্বারা প্রস্তুতকৃত অফিসিয়াল ইলেকট্রনিক বিবরণী।</p>
-        <p class="fw-bold mb-0">সত্যতা যাচাই লিংক: https://sblwallet.com.bd:8787/pdf-viewer/verify</p>
-    </div>
 </div>
 
 <!-- JavaScript Core Engine -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    // Global Application State
     let currentBalance = 150001213.00;
     let selectedChannel = 'NPSB';
     let pinModalInstance = null;
 
-    // CBS Central Beneficiary Directory for Auto-Lookup
     const beneficiaryDatabase = {
         "7017511802593": { name: "DBBL Account Holder (70175)", mobile: "01712345678", bank: "Dutch-Bangla Bank PLC" },
-        "3107033001358": { name: "Rural Reconstruction Foundation (RRF)", mobile: "01812345678", bank: "Sonali Bank PLC" },
-        "2050123004512": { name: "Rahim Enterprise & Co.", mobile: "01711223344", bank: "City Bank PLC" },
-        "1502100304910": { name: "Green Agro Industries Ltd.", mobile: "01922334455", bank: "BRAC Bank PLC" },
-        "4010293847561": { name: "Md. Rafiqul Islam", mobile: "01611223344", bank: "Dutch-Bangla Bank PLC" }
+        "3107033001358": { name: "Rural Reconstruction Foundation (RRF)", mobile: "01812345678", bank: "Sonali Bank PLC" }
     };
 
-    // Auto lookup account number and autofill recipient name and mobile
     function lookupBeneficiaryAccount(accNo) {
         const cleanAcc = accNo.trim();
         const nameInput = document.getElementById('recName');
         const mobileInput = document.getElementById('recMobile');
         const bankSelect = document.getElementById('targetBank');
-        const statusText = document.getElementById('cbsLookupStatus');
-        const badge = document.getElementById('cbsLookupBadge');
 
         if (beneficiaryDatabase[cleanAcc]) {
             const record = beneficiaryDatabase[cleanAcc];
             nameInput.value = record.name;
             mobileInput.value = record.mobile;
             if (bankSelect) bankSelect.value = record.bank;
-            if (statusText) statusText.innerHTML = '<span class="text-success fw-bold"><i class="fa-solid fa-check-circle me-1"></i>সিবিএস সেন্ট্রাল ডিরেক্টরি থেকে যাচাইকৃত। (পরিবর্তনযোগ্য)</span>';
-            if (badge) badge.className = 'input-group-text bg-success text-white';
         } else if (cleanAcc.length >= 10) {
             nameInput.value = "Account Holder (" + cleanAcc.slice(-4) + ")";
             mobileInput.value = "017" + Math.floor(10000000 + Math.random() * 90000000);
-            if (statusText) statusText.innerHTML = '<span class="text-primary fw-bold"><i class="fa-solid fa-circle-check me-1"></i>অ্যাকাউন্ট ভেরিফাইড। প্রয়োজনে নাম বা মোবাইল এডিট করে নিন।</span>';
-            if (badge) badge.className = 'input-group-text bg-primary text-white';
-        } else {
-            nameInput.value = "";
-            mobileInput.value = "";
-            if (statusText) statusText.innerText = "অ্যাকাউন্ট নম্বর টাইপ করলেই নাম ও মোবাইল চলে আসবে। আপনি চাইলে যেকোনো সময় ফিল্ডগুলো এডিট করতে পারবেন।";
-            if (badge) badge.className = 'input-group-text bg-light text-success';
         }
     }
 
-    function selectBeneficiary(accNo) {
-        document.getElementById('recAcc').value = accNo;
-        lookupBeneficiaryAccount(accNo);
-    }
-
-    // Real-time Date Helper Functions
     function getRealtimeDateString() {
         const now = new Date();
         const day = String(now.getDate()).padStart(2, '0');
         const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        const month = monthNames[now.getMonth()];
-        const year = now.getFullYear();
-        return `${day}-${month}-${year}`;
+        return `${day}-${monthNames[now.getMonth()]}-${now.getFullYear()}`;
     }
 
-    function getRealtimeBanglaDate() {
-        const now = new Date();
-        const day = now.getDate();
-        const banglaMonths = ["জানুয়ারি", "ফেব্রুয়ারি", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগস্ট", "সেপ্টেম্বর", "অক্টোবর", "নভেম্বর", "ডিসেম্বর"];
-        const month = banglaMonths[now.getMonth()];
-        const year = now.getFullYear();
-        return `${day} ${month}, ${year}`;
-    }
-
-    // Helper: BDT Currency Formatter
     function formatBDT(amount) {
-        return '৳ ' + Number(amount).toLocaleString('en-IN', {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-        });
+        return '৳ ' + Number(amount).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
 
-    // Section Switcher
     function showSection(secId, element) {
         document.querySelectorAll('.app-sec').forEach(el => el.style.display = 'none');
         const targetSec = document.getElementById('sec-' + secId);
         if (targetSec) targetSec.style.display = 'block';
         
         document.querySelectorAll('.sidebar .nav-link').forEach(el => el.classList.remove('active'));
-        if (element) {
-            element.classList.add('active');
-        }
+        if (element) element.classList.add('active');
     }
 
-    // Transfer Channel Selector
     function selectChannel(channel) {
         selectedChannel = channel;
         document.querySelectorAll('.channel-btn').forEach(btn => btn.classList.remove('active'));
@@ -955,37 +654,47 @@
         if (activeBtn) activeBtn.classList.add('active');
     }
 
-    // Modal PIN Prompt Trigger
     function promptPinVerification(e) {
         e.preventDefault();
-        
         const amountNum = parseFloat(document.getElementById('trAmount').value);
-        if (isNaN(amountNum) || amountNum <= 0) {
-            showNotification('সঠিক পরিমাণ দিন! Please enter a valid transfer amount.', 'danger');
+        if (isNaN(amountNum) || amountNum <= 0 || amountNum > currentBalance) {
+            showNotification('সঠিক পরিমাণ বা ব্যালেন্স চেক করুন!', 'danger');
             return;
         }
+        if (pinModalInstance) pinModalInstance.show();
+    }
 
-        if (amountNum > currentBalance) {
-            showNotification('পর্যাপ্ত ব্যালেন্স নেই! Insufficient balance available.', 'danger');
-            return;
-        }
-
-        if (pinModalInstance) {
-            pinModalInstance.show();
+    // ১. ব্রাউজার ও ডিভাইসে নোটিফিকেশন সক্রিয় করার ফাংশন
+    function enableBrowserNotifications() {
+        if ("Notification" in window) {
+            Notification.requestPermission().then(permission => {
+                if (permission === "granted") {
+                    showNotification("ব্রাউজার নোটিফিকেশন সফলভাবে চালু করা হয়েছে!", "success");
+                    sendPushNotification("সোনালী ব্যাংক পিএলসি", "আপনার ডিভাইসে রিয়েল-টাইম নোটিফিকেশন সার্ভিস অ্যাক্টিভ হয়েছে।");
+                } else {
+                    showNotification("নোটিফিকেশন পারমিশন দেওয়া হয়নি!", "danger");
+                }
+            });
         }
     }
 
-    // Execute Transfer Handler
+    // ২. ডিভাইস নোটিফিকেশন সেন্ড করার হেল্পার
+    function sendPushNotification(title, bodyMsg) {
+        if ("Notification" in window && Notification.permission === "granted") {
+            new Notification(title, {
+                body: bodyMsg,
+                icon: "https://cdn-icons-png.flaticon.com/512/190/190411.png"
+            });
+        }
+    }
+
+    // ৩. ট্রান্সফার এক্সিকিউশন ও পুশ নোটিফিকেশন ফায়ারিং
     function executeTransfer() {
-        const pin = document.getElementById('userPinInput').value;
-        if (pin !== '1234') {
-            showNotification('ভুল পিন কোড! Invalid Security PIN (Use 1234).', 'danger');
+        if (document.getElementById('userPinInput').value !== '1234') {
+            showNotification('ভুল পিন কোড! (Use 1234)', 'danger');
             return;
         }
-
-        if (pinModalInstance) {
-            pinModalInstance.hide();
-        }
+        if (pinModalInstance) pinModalInstance.hide();
 
         const bank = document.getElementById('targetBank').value;
         const recName = document.getElementById('recName').value;
@@ -994,135 +703,51 @@
         const amountNum = parseFloat(document.getElementById('trAmount').value);
         const isSmsActive = document.getElementById('smsToggleCheck').checked;
 
-        // Deduct Balance
         currentBalance -= amountNum;
         const formattedAmount = Number(amountNum).toLocaleString('en-IN', { minimumFractionDigits: 2 });
         const txnId = 'TXN' + Math.floor(100000 + Math.random() * 900000);
-        
-        // Update DOM Displays
         const balText = formatBDT(currentBalance);
-        const withdrawLimitText = formatBDT(currentBalance - 1000000);
-        
-        document.getElementById('dashBalanceDisplay').innerText = balText;
-        document.getElementById('dashWithdrawLimit').innerText = withdrawLimitText;
-        document.getElementById('printBalance').innerText = balText;
-        document.getElementById('printWithdrawLimit').innerText = withdrawLimitText;
-        document.getElementById('certBalanceText').innerText = 'BDT ' + Number(currentBalance).toLocaleString('en-IN', { minimumFractionDigits: 2 });
-        document.getElementById('printCertBalance').innerText = 'BDT ' + Number(currentBalance).toLocaleString('en-IN', { minimumFractionDigits: 2 });
 
-        // Current Realtime Timestamps
+        document.getElementById('dashBalanceDisplay').innerText = balText;
+
         const now = new Date();
-        const nowTime = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        const nowTime = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         const nowDate = getRealtimeDateString();
 
-        // Insert Row into On-screen Statement Table
-        const newRow = `
-            <tr>
-                <td>${nowDate}</td>
-                <td>
-                    <strong>Transfer via Central CBS (${selectedChannel})</strong><br>
-                    <small class="text-muted font-monospace">${bank} | Acc: ${recAcc} | TrxID: ${txnId}</small>
-                </td>
-                <td class="text-end text-danger fw-bold font-monospace">৳ ${formattedAmount}</td>
-                <td class="text-end text-muted">-</td>
-                <td class="text-end fw-bold font-monospace">${balText} Cr</td>
-            </tr>
-        `;
-        document.getElementById('statementTableBody').insertAdjacentHTML('afterbegin', newRow);
-        
-        syncPrintTable();
+        const smsText = `Deposit Alert! Tk ${formattedAmount} credited to your ${bank} Acc ${recAcc} from MD. AL AMIN SOHAG via ${selectedChannel}. TrxID: ${txnId}.`;
 
-        // If SMS service is enabled, display in console
         if (isSmsActive) {
             const emptyText = document.getElementById('emptySmsText');
             if (emptyText) emptyText.remove();
 
-            // Generate Sender SMS
-            const senderSmsHtml = `
-                <div class="sms-box mb-3">
-                    <div class="d-flex justify-content-between align-items-center mb-1">
-                        <strong class="text-info"><i class="fa-solid fa-mobile-screen me-1"></i> [SENDER SMS] 01700000000</strong>
-                        <small class="opacity-75">${nowDate} ${nowTime}</small>
-                    </div>
-                    <div>Trx Successful via ${selectedChannel}. Tk ${formattedAmount} debited from Sonali Bank Acc ...2118 to ${bank} Acc ${recAcc}. TrxID: ${txnId}. Bal: ${balText}.</div>
-                </div>
-            `;
-
-            // Generate Recipient SMS
             const recipientSmsHtml = `
                 <div class="sms-box sms-recipient mb-3">
                     <div class="d-flex justify-content-between align-items-center mb-1">
                         <strong class="text-success"><i class="fa-solid fa-mobile-screen me-1"></i> [RECIPIENT SMS: ${recMobile}]</strong>
                         <small class="opacity-75">${nowDate} ${nowTime}</small>
                     </div>
-                    <div>Deposit Alert! Tk ${formattedAmount} credited to your ${bank} Acc ${recAcc} from MD. AL AMIN SOHAG via ${selectedChannel}. TrxID: ${txnId}.</div>
+                    <div>${smsText}</div>
                 </div>
             `;
+            document.getElementById('smsContainer').insertAdjacentHTML('afterbegin', recipientSmsHtml);
 
-            document.getElementById('smsContainer').insertAdjacentHTML('afterbegin', recipientSmsHtml + senderSmsHtml);
-            
-            showNotification(`সফলভাবে ৳ ${formattedAmount} ট্রান্সফার হয়েছে এবং প্রাপক (${recMobile})-এর ফোনে রিয়েল-টাইম এসএমএস পাঠানো হয়েছে! (TrxID: ${txnId})`, 'success');
-        } else {
-            showNotification(`সফলভাবে ৳ ${formattedAmount} ট্রান্সফার সম্পন্ন হয়েছে! (TrxID: ${txnId})`, 'success');
+            // ইনস্ট্যান্ট ব্রাউজার পুশ নোটিফিকেশন ফায়ার করা
+            sendPushNotification("সোনালী ব্যাংক ডেবিট অ্যালার্ট", `Tk ${formattedAmount} ট্রান্সফার সফল হয়েছে। TrxID: ${txnId}`);
         }
+
+        showNotification(`সফলভাবে ৳ ${formattedAmount} ট্রান্সফার সম্পন্ন হয়েছে! (TrxID: ${txnId})`, 'success');
     }
 
-    // Notification Toast Helper
     function showNotification(msg, type) {
         const box = document.getElementById('notificationBox');
-        const icon = document.getElementById('notificationIcon');
         const text = document.getElementById('notificationText');
-
         if (!box) return;
-
         box.className = `alert alert-${type === 'danger' ? 'danger' : 'success'} alert-dismissible fade show rounded-4`;
-        icon.className = `fa-solid ${type === 'danger' ? 'fa-triangle-exclamation' : 'fa-circle-check'} fs-4 me-3`;
         text.innerText = msg;
         box.style.display = 'block';
-
-        setTimeout(() => {
-            box.style.display = 'none';
-        }, 4000);
+        setTimeout(() => { box.style.display = 'none'; }, 4000);
     }
 
-    // Filter Table Search Results
-    function filterTransactions() {
-        const query = document.getElementById('searchInput').value.toLowerCase();
-        const type = document.getElementById('typeFilter').value;
-        const rows = document.querySelectorAll('#statementTableBody tr');
-
-        rows.forEach(row => {
-            const text = row.innerText.toLowerCase();
-            const matchesQuery = text.includes(query);
-            let matchesType = true;
-
-            if (type === 'DEBIT') {
-                matchesType = row.children[2].innerText.trim() !== '-';
-            } else if (type === 'CREDIT') {
-                matchesType = row.children[3].innerText.trim() !== '-';
-            }
-
-            row.style.display = (matchesQuery && matchesType) ? '' : 'none';
-        });
-    }
-
-    // Reset Table Filters
-    function resetFilters() {
-        document.getElementById('searchInput').value = '';
-        document.getElementById('typeFilter').value = 'ALL';
-        filterTransactions();
-    }
-
-    // Sync Printable Sheet with Screen Data
-    function syncPrintTable() {
-        const screenTableBody = document.getElementById('statementTableBody').innerHTML;
-        const printTableBody = document.getElementById('printTableBody');
-        if (printTableBody) {
-            printTableBody.innerHTML = screenTableBody;
-        }
-    }
-
-    // Print Handler
     function printDoc(targetId) {
         document.querySelectorAll('.printable-sheet').forEach(el => el.style.display = 'none');
         const sheet = document.getElementById(targetId);
@@ -1132,66 +757,12 @@
         }
     }
 
-    // CSV Export Generator
-    function exportStatementCSV() {
-        const rows = document.querySelectorAll("#mainStatementTable tr");
-        let csvContent = "data:text/csv;charset=utf-8,";
-
-        rows.forEach(row => {
-            const cols = row.querySelectorAll("td, th");
-            const rowData = [];
-            cols.forEach(col => {
-                let text = col.innerText.replace(/\n/g, ' ').replace(/,/g, '');
-                rowData.push(`"${text}"`);
-            });
-            csvContent += rowData.join(",") + "\r\n";
-        });
-
-        const encodedUri = encodeURI(csvContent);
-        const link = document.createElement("a");
-        link.setAttribute("href", encodedUri);
-        link.setAttribute("download", `SBL_Statement_${getRealtimeDateString()}.csv`);
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-        showNotification('CSV ফাইল তৈরি করা হয়েছে এবং ডাউনলোড শুরু হয়েছে।', 'success');
-    }
-
-    // Clearing Node Sync Simulation
-    function triggerSyncNode() {
-        const log = document.getElementById('clearingLog');
-        const now = new Date().toLocaleTimeString();
-        log.innerHTML += `[${now}] BEFTN / RTGS Manual Sync Triggered.<br>[${now}] BB Switch Acknowledgement Received.<br>`;
-        showNotification('সেন্ট্রাল ক্লিয়ারিং নোডের সাথে সফলভাবে ডেটা সিন্ক্রোনাইজ হয়েছে।', 'success');
-    }
-
-    // PDF Verification Simulator
-    function simulatePdfVerify() {
-        showNotification('Gemini OCR ভ্যালিডেশন ইঞ্জিন: ফাইলটির ডিজিটাল সিগনেচার সঠিক এবং অরিজিনাল পাওয়া গিয়েছে।', 'success');
-    }
-
-    // Initialize application on load
     window.onload = function() {
         const modalElement = document.getElementById('pinModal');
         if (modalElement && typeof bootstrap !== 'undefined') {
             pinModalInstance = new bootstrap.Modal(modalElement);
         }
-        
-        // Update Live Dates
-        const todayStr = getRealtimeDateString();
-        const dashLiveDate = document.getElementById('dashLiveDate');
-        if (dashLiveDate) dashLiveDate.innerText = getRealtimeBanglaDate();
-        
-        const certIssueDate = document.getElementById('certIssueDate');
-        if (certIssueDate) certIssueDate.innerText = todayStr;
-        
-        const printStatementGenDate = document.getElementById('printStatementGenDate');
-        if (printStatementGenDate) printStatementGenDate.innerText = todayStr;
-        
-        document.querySelectorAll('.printCertDate').forEach(el => el.innerText = todayStr);
-
-        syncPrintTable();
+        enableBrowserNotifications();
     };
 </script>
 </body>

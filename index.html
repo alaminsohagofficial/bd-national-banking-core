@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>সোনালী ব্যাংক পিএলসি - কোর ব্যাংকিং সিস্টেম (CBS) উইথ এআই ও ব্যাংকিং এপিআই</title>
+    <title>সোনালী ব্যাংক পিএলসি - কোর ব্যাংকিং সিস্টেম (Vehicle LC Module)</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts (Inter) -->
@@ -35,11 +35,6 @@
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
-        .channel-btn.active {
-            background-color: #004d26 !important;
-            color: white !important;
-            border-color: #004d26 !important;
-        }
     </style>
 </head>
 <body>
@@ -58,21 +53,18 @@
                         <a href="#" class="nav-link active" onclick="showSection('dashboard', this)">🏠 ড্যাশবোর্ড</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link" onclick="showSection('transfer', this)">💸 তহবিল স্থানান্তর (RTGS/BEFTN)</a>
+                        <a href="#" class="nav-link" onclick="showSection('vehicle-lc', this)">🚗 গাড়ি আমদানি এলসি (LC300)</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link" onclick="showSection('ai-assistant', this)">🤖 এআই ও ব্যাংকিং এপিআই</a>
+                        <a href="#" class="nav-link" onclick="showSection('ai-assistant', this)">🤖 Gemini AI ও API হাব</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link" onclick="showSection('accounts', this)">👤 কোম্পানি ও এনজিও অ্যাকাউন্টস</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" onclick="showSection('statements', this)">📊 হিসাব বিবরণী (Statement)</a>
+                        <a href="#" class="nav-link" onclick="showSection('statements', this)">📊 হিসাব বিবরণী ও এলসি স্ট্যাটাস</a>
                     </li>
                 </ul>
             </div>
             <div class="text-center pb-3">
-                <small class="text-light opacity-50">সিস্টেম ভার্সন: v4.0.0 (API Integrated)</small>
+                <small class="text-light opacity-50">সিস্টেম ভার্সন: v4.2.0 (LC Module)</small>
             </div>
         </div>
 
@@ -83,18 +75,11 @@
             <div class="d-flex justify-content-between align-items-center mb-4 bg-white p-3 rounded-3 shadow-sm">
                 <div>
                     <h5 class="fw-bold mb-0 text-success">স্বাগতম, মো. আল আমিন সোহাগ</h5>
-                    <small class="text-muted">ব্রাঞ্চ কোড: ১০০২ (লোকাল অফিস, ঢাকা) | কানেক্টিভিটি: রিয়েল-টাইম এপিআই</small>
+                    <small class="text-muted">ব্রাঞ্চ কোড: ১০০২ (লোকাল অফিস, ঢাকা) | কার এলসি পোর্টাল</small>
                 </div>
                 <div class="d-flex align-items-center gap-3">
-                    <span class="badge bg-success p-2">Gemini API: Connected</span>
-                    <span class="badge bg-primary p-2">Core Banking API: Live</span>
+                    <span class="badge bg-success p-2">LC Status: Active</span>
                 </div>
-            </div>
-
-            <!-- Notification Alert Box -->
-            <div id="notificationBox" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
-                <strong id="notificationTitle">সফল!</strong> <span id="notificationText">লেনদেন সফলভাবে সম্পন্ন হয়েছে।</span>
-                <button type="button" class="btn-close" onclick="document.getElementById('notificationBox').style.display='none'"></button>
             </div>
 
             <!-- SECTION 1: DASHBOARD -->
@@ -109,55 +94,41 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card card-custom bg-white p-4 border-start border-warning border-4">
-                            <h6 class="text-muted mb-2">চলতি হিসাব (Current)</h6>
-                            <h3 class="fw-bold text-dark">৳ ১,২৫,৫০০.০০</h3>
-                            <small class="text-warning text-dark">Minister & SR Park Pool</small>
+                            <h6 class="text-muted mb-2">গাড়ি আমদানি এলসি (LC300)</h6>
+                            <h3 class="fw-bold text-dark">সক্রিয় (Processing)</h3>
+                            <small class="text-warning text-dark">Toyota Land Cruiser LC300</small>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="card card-custom bg-white p-4 border-start border-primary border-4">
-                            <h6 class="text-muted mb-2">এনজিও ফান্ডের ব্যালেন্স</h6>
-                            <h3 class="fw-bold text-dark">৳ ৭৫,০০০.০০</h3>
-                            <small class="text-primary">RRF NGO Sub-account</small>
+                            <h6 class="text-muted mb-2">এনজিও ও অন্যান্য ফান্ড</h6>
+                            <h3 class="fw-bold text-dark">৳ ১,০০,৫০০.০০</h3>
+                            <small class="text-primary">Pool Account</small>
                         </div>
                     </div>
                 </div>
 
-                <!-- Recent Transactions Summary -->
+                <!-- Recent LC Activity -->
                 <div class="card card-custom mt-4 p-4 bg-white">
-                    <h5 class="fw-bold mb-3">সাম্প্রতিক বড় অঙ্কের পেমেন্টসমূহ (RTGS ও এনজিও)</h5>
+                    <h5 class="fw-bold mb-3">আমদানি ও এলসি ট্রানজেকশন সামারি</h5>
                     <div class="table-responsive">
                         <table class="table table-hover align-middle">
                             <thead class="table-light">
                                 <tr>
-                                    <th>তারিখ</th>
-                                    <th>বিবরণ ও বেনিফিশিয়ারি</th>
-                                    <th>চ্যানেল</th>
-                                    <th>পরিমাণ</th>
+                                    <th>এলসি নম্বর</th>
+                                    <th>পণ্যের বিবরণ</th>
+                                    <th>রঙ ও ইঞ্জিন</th>
+                                    <th>পরিমাণ / মার্জিন</th>
                                     <th>স্ট্যাটাস</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>২৮ আগস্ট ২০২৬</td>
-                                    <td>RTGS - Minister Hi-Tech Park Electronics Ltd.</td>
-                                    <td>RTGS</td>
-                                    <td class="text-danger">- ৳ ১,৩২,৬৯,৫৪৫.০০</td>
-                                    <td><span class="badge bg-success">সফল (API Verified)</span></td>
-                                </tr>
-                                <tr>
-                                    <td>২৬ আগস্ট ২০২৬</td>
-                                    <td>RTGS - S.R. Electronics Park</td>
-                                    <td>RTGS</td>
-                                    <td class="text-danger">- ৳ ৩,১৪,২৯,০০০.০০</td>
-                                    <td><span class="badge bg-success">সফল (API Verified)</span></td>
-                                </tr>
-                                <tr>
-                                    <td>২৫ আগস্ট ২০২৬</td>
-                                    <td>BEFTN - RRF NGO Payment</td>
-                                    <td>BEFTN</td>
-                                    <td class="text-danger">- ৳ ২৫,০০০.০০</td>
-                                    <td><span class="badge bg-success">সফল (API Verified)</span></td>
+                                    <td>LC-904521</td>
+                                    <td>2024 Toyota Land Cruiser LC300</td>
+                                    <td>Precious White Pearl (3.5L V6)</td>
+                                    <td>প্রফর্মা ইনভয়েস ভেরিফাইড</td>
+                                    <td><span class="badge bg-success">সফলভাবে ওপেন হয়েছে</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -165,132 +136,83 @@
                 </div>
             </div>
 
-            <!-- SECTION 2: AI & BANKING API INTEGRATION -->
-            <div id="sec-ai-assistant" class="app-sec" style="display: none;">
+            <!-- SECTION 2: VEHICLE LC MODULE -->
+            <div id="sec-vehicle-lc" class="app-sec" style="display: none;">
                 <div class="card card-custom p-4 bg-white">
-                    <h4 class="fw-bold mb-3 text-success">🤖 Gemini AI ও রিয়েল-টাইম Banking API হাব</h4>
-                    <p class="text-muted">ন্যাচারাল ভাষায় কমান্ড লিখুন অথবা ইনভয়েস ডেটা পেস্ট করুন। Gemini API তা পার্স করে সরাসরি Core Banking API-এর মাধ্যমে RTGS বা BEFTN এক্সিকিউট করবে।</p>
+                    <h4 class="fw-bold mb-3 text-success">🚗 গাড়ি আমদানি এলসি (Letter of Credit) আবেদন ফর্ম</h4>
+                    <p class="text-muted">আপনার প্রিমিয়াম ভেহিকেল আমদানির জন্য কমার্শিয়াল ইনভয়েস ও এলসি ডিটেইলস এখানে কনফার্ম করুন।</p>
                     
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">এআই পেমেন্ট কমান্ড প্রম্পট:</label>
-                        <textarea class="form-control" id="aiPromptInput" rows="3" placeholder="যেমন: Minister Hi-Tech Park Electronics Ltd. এ ১,৩২,৬৯,৫৪৫ টাকা RTGS পেমেন্ট কনফার্ম করো।"></textarea>
-                    </div>
-                    <button class="btn btn-success px-4 py-2 fw-bold mb-3" onclick="executeSmartAIPayment()">এআই ও ব্যাংকিং এপিআই কল করুন</button>
-
-                    <div class="card bg-light p-3 border-0 mt-3">
-                        <h6 class="fw-bold text-dark">লাইভ এপিআই রেসপন্স লগ:</h6>
-                        <pre id="apiResponseLog" class="mb-0 text-success small">অপেক্ষা করা হচ্ছে...</pre>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SECTION 3: FUND TRANSFER -->
-            <div id="sec-transfer" class="app-sec" style="display: none;">
-                <div class="card card-custom p-4 bg-white">
-                    <h4 class="fw-bold mb-4 text-success">তহবিল স্থানান্তর (Fund Transfer)</h4>
-                    
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">স্থানান্তর মাধ্যম নির্বাচন করুন:</label>
-                        <div class="btn-group w-100" role="group">
-                            <button type="button" class="btn btn-outline-success channel-btn active" id="btn-npsb" onclick="selectChannel('npsb')">NPSB (Instant)</button>
-                            <button type="button" class="btn btn-outline-success channel-btn" id="btn-beftn" onclick="selectChannel('beftn')">BEFTN (Regular)</button>
-                            <button type="button" class="btn btn-outline-success channel-btn" id="btn-rtgs" onclick="selectChannel('rtgs')">RTGS (High Value - Min 1 Lac)</button>
-                        </div>
-                    </div>
-
-                    <form onsubmit="promptPinVerification(event)">
+                    <form onsubmit="submitVehicleLC(event)">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">প্রাপকের অ্যাকাউন্ট নম্বর</label>
-                                <input type="text" class="form-control" id="recAcc" placeholder="অ্যাকাউন্ট বা কার্ড নম্বর দিন" required oninput="lookupBeneficiaryAccount(this.value)">
-                                <div id="cbsLookupStatus" class="form-text text-muted"></div>
+                                <label class="form-label">গাড়ির মডেল</label>
+                                <input type="text" class="form-control" id="carModel" value="2024 Toyota Land Cruiser LC300" readonly>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">প্রাপকের নাম</label>
-                                <input type="text" class="form-control" id="recName" placeholder="স্বয়ংক্রিয়ভাবে লোড হবে" readonly>
+                                <label class="form-label">কালার ও এক্সটেরিয়র</label>
+                                <input type="text" class="form-control" id="carColor" value="Precious White Pearl" readonly>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">মোবাইল নম্বর</label>
-                                <input type="text" class="form-control" id="recMobile" placeholder="প্রাপকের মোবাইল" readonly>
+                                <label class="form-label">ইঞ্জিন কনফিগারেশন</label>
+                                <input type="text" class="form-control" id="carEngine" value="3.5-liter V6 Twin-Turbo Petrol" readonly>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">টাকার পরিমাণ (BDT)</label>
-                                <input type="number" class="form-control" id="trAmount" placeholder="০.০০" required>
+                                <label class="form-label">এলসি মার্জিন পার্সেন্টেজ</label>
+                                <input type="text" class="form-control" id="lcMargin" value="১৫% ক্যাশ মার্জিন" readonly>
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">রেফারেন্স / ইনভয়েস নম্বর</label>
-                            <input type="text" class="form-control" id="trRef" placeholder="যেমন: প্রফর্মা ইনভয়েস বা এলসি রেফারেন্স">
+                            <label class="form-label">রপ্তানকারক / সাপ্লায়ার (Beneficiary)</label>
+                            <input type="text" class="form-control" id="lcSupplier" value="Toyota Motor Corporation, Japan" readonly>
                         </div>
 
-                        <button type="submit" class="btn btn-success px-4 py-2 fw-bold">এগিয়ে যান (Proceed)</button>
+                        <button type="submit" class="btn btn-success px-4 py-2 fw-bold">এলসি সাবমিট ও এপিআই কনফার্ম করুন</button>
                     </form>
                 </div>
             </div>
 
-            <!-- SECTION 4: ACCOUNTS -->
-            <div id="sec-accounts" class="app-sec" style="display: none;">
+            <!-- SECTION 3: AI ASSISTANT -->
+            <div id="sec-ai-assistant" class="app-sec" style="display: none;">
                 <div class="card card-custom p-4 bg-white">
-                    <h4 class="fw-bold mb-3 text-success">নিবন্ধিত বেনিফিশিয়ারি তালিকা (কোম্পানি ও এনজিও)</h4>
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center mb-2 rounded-2 border" onclick="selectBeneficiary('2050123004512'); showSection('transfer', null);">
-                            <div>
-                                <h6 class="mb-1 fw-bold">Minister Hi-Tech Park Electronics Ltd.</h6>
-                                <small class="text-muted">A/C: 2050123004512 | RTGS Corporate</small>
-                            </div>
-                            <span class="badge bg-success rounded-pill">সিলেক্ট করুন</span>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center mb-2 rounded-2 border" onclick="selectBeneficiary('1502100304910'); showSection('transfer', null);">
-                            <div>
-                                <h6 class="mb-1 fw-bold">S.R. Electronics Park</h6>
-                                <small class="text-muted">A/C: 1502100304910 | RTGS Corporate</small>
-                            </div>
-                            <span class="badge bg-success rounded-pill">সিলেক্ট করুন</span>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center rounded-2 border" onclick="selectBeneficiary('3107033001358'); showSection('transfer', null);">
-                            <div>
-                                <h6 class="mb-1 fw-bold">RRF NGO</h6>
-                                <small class="text-muted">A/C: 3107033001358 | BEFTN/NPSB</small>
-                            </div>
-                            <span class="badge bg-success rounded-pill">সিলেক্ট করুন</span>
-                        </a>
+                    <h4 class="fw-bold mb-3 text-success">🤖 Gemini AI এলসি অ্যাসিস্ট্যান্ট</h4>
+                    <p class="text-muted">আপনার এলসি সংক্রান্ত যেকোনো নির্দেশনা বা প্রফর্মা ইনভয়েস টেক্সট এখানে দিন:</p>
+                    
+                    <div class="mb-3">
+                        <textarea class="form-control" id="aiLcPrompt" rows="3" placeholder="যেমন: 2024 Toyota Land Cruiser LC300 Precious White Pearl গাড়ির এলসি প্রসেস করো।"></textarea>
+                    </div>
+                    <button class="btn btn-success px-4 py-2 fw-bold mb-3" onclick="processAILCOpening()">এআই দিয়ে এলসি প্রসেস করুন</button>
+
+                    <div class="card bg-light p-3 border-0 mt-3">
+                        <h6 class="fw-bold text-dark">এপিআই রেসপন্স লগ:</h6>
+                        <pre id="lcApiResponseLog" class="mb-0 text-success small">অপেক্ষা করা হচ্ছে...</pre>
                     </div>
                 </div>
             </div>
 
-            <!-- SECTION 5: STATEMENTS -->
+            <!-- SECTION 4: STATEMENTS -->
             <div id="sec-statements" class="app-sec" style="display: none;">
                 <div class="card card-custom p-4 bg-white">
-                    <h4 class="fw-bold text-success mb-3">রিয়েল-টাইম এপিআই লেজার স্টেটমেন্ট</h4>
+                    <h4 class="fw-bold text-success mb-3">এলসি লেজার ও স্ট্যাটাস রিপোর্ট</h4>
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
                             <thead class="table-success">
                                 <tr>
-                                    <th>ট্রানজেকশন আইডি</th>
+                                    <th>এলসি আইডি</th>
                                     <th>তারিখ</th>
-                                    <th>বিবরণ</th>
-                                    <th>ডেবিট (টাকা)</th>
-                                    <th>স্ট্যাটাস</th>
+                                    <th>গাড়ি বিবরণ</th>
+                                    <th>অবস্থা</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>TXN983421</td>
-                                    <td>২৮-০৮-২০২৬</td>
-                                    <td>RTGS to Minister Hi-Tech Park</td>
-                                    <td class="text-danger">১,৩২,৬৯,৫৪৫.০০</td>
-                                    <td><span class="badge bg-success">Settled</span></td>
-                                </tr>
-                                <tr>
-                                    <td>TXN981102</td>
-                                    <td>২৬-০৮-২০২৬</td>
-                                    <td>RTGS to S.R. Electronics Park</td>
-                                    <td class="text-danger">৩,১৪,২৯,০০০.০০</td>
-                                    <td><span class="badge bg-success">Settled</span></td>
+                                    <td>LC-904521</td>
+                                    <td>২৯-০৮-২০২৬</td>
+                                    <td>Toyota Land Cruiser LC300 (White Pearl)</td>
+                                    <td><span class="badge bg-success">Approved & Active</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -302,30 +224,7 @@
     </div>
 </div>
 
-<!-- PIN Verification Modal -->
-<div class="modal fade" id="pinModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-0 shadow-lg rounded-4 p-3">
-            <div class="modal-header border-0">
-                <h5 class="modal-title fw-bold text-success">নিরাপত্তা পিন যাচাই (Security PIN)</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-center">
-                <p class="text-muted mb-4">বড় অঙ্কের ফান্ড ট্রান্সফার সম্পন্ন করতে পিন দিন <br><small class="text-danger">(টেস্ট পিন: 1234)</small></p>
-                <div class="d-flex justify-content-center gap-2 mb-4">
-                    <input type="password" maxlength="4" class="form-control text-center fw-bold fs-3 font-monospace rounded-3" style="width: 160px; letter-spacing: 12px;" id="userPinInput" placeholder="••••">
-                </div>
-                <button type="button" class="btn btn-success w-100 py-2 fw-bold rounded-3 shadow-sm" onclick="executeTransfer()">পিন কনফার্ম করুন</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Bootstrap JS Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    let activeChannel = 'npsb';
-
     function showSection(secId, element) {
         document.querySelectorAll('.app-sec').forEach(el => el.style.display = 'none');
         document.getElementById('sec-' + secId).style.display = 'block';
@@ -333,91 +232,32 @@
         if(element) element.classList.add('active');
     }
 
-    function selectChannel(channel) {
-        activeChannel = channel;
-        document.querySelectorAll('.channel-btn').forEach(el => el.classList.remove('active'));
-        document.getElementById('btn-' + channel).classList.add('active');
-    }
-
-    function selectBeneficiary(accNo) {
-        document.getElementById('recAcc').value = accNo;
-        lookupBeneficiaryAccount(accNo);
-    }
-
-    function lookupBeneficiaryAccount(accNo) {
-        const names = {
-            '2050123004512': { name: 'Minister Hi-Tech Park Electronics Ltd.', mobile: '01811223344' },
-            '1502100304910': { name: 'S.R. Electronics Park', mobile: '01911223344' },
-            '3107033001358': { name: 'RRF NGO', mobile: '01711223344' }
-        };
-        if(names[accNo]) {
-            document.getElementById('recName').value = names[accNo].name;
-            document.getElementById('recMobile').value = names[accNo].mobile;
-            document.getElementById('cbsLookupStatus').innerText = 'সফলভাবে সিবিএস এপিআই থেকে অ্যাকাউন্ট ভেরিফাই করা হয়েছে।';
-        } else {
-            document.getElementById('cbsLookupStatus').innerText = 'নতুন বাহ্যিক অ্যাকাউন্ট নম্বর।';
-        }
-    }
-
-    function promptPinVerification(event) {
+    function submitVehicleLC(event) {
         event.preventDefault();
-        let amt = parseFloat(document.getElementById('trAmount').value);
-        if (activeChannel === 'rtgs' && amt < 100000) {
-            alert('সতর্কতা: RTGS-এর মাধ্যমে সর্বনিম্ন ১,০০,০০০ টাকা বা তার বেশি ট্রান্সফার করতে হবে।');
-            return;
-        }
-        var myModal = new bootstrap.Modal(document.getElementById('pinModal'));
-        myModal.show();
+        alert('সফল! Toyota Land Cruiser LC300 গাড়ির এলসি আবেদন সফলভাবে সোনালী ব্যাংক কোর ব্যাংকিং সিস্টেমে সাবমিট হয়েছে।');
+        showSection('dashboard', document.querySelector('.nav-link'));
     }
 
-    function executeTransfer() {
-        var pin = document.getElementById('userPinInput').value;
-        if(pin === "1234") {
-            var bootstrapModal = bootstrap.Modal.getInstance(document.getElementById('pinModal'));
-            bootstrapModal.hide();
-            
-            var notifBox = document.getElementById('notificationBox');
-            notifBox.style.display = 'block';
-            document.getElementById('notificationTitle').innerText = 'API Settlement Successful!';
-            document.getElementById('notificationText').innerText = 'ফান্ড সফলভাবে ট্রান্সফার হয়েছে এবং কোর ব্যাংকিং এপিআই আপডেট হয়েছে।';
+    async function processAILCOpening() {
+        const prompt = document.getElementById('aiLcPrompt').value;
+        const logBox = document.getElementById('lcApiResponseLog');
+        logBox.innerText = "Gemini API পার্স করছে এবং LC API কল করা হচ্ছে...";
 
-            setTimeout(() => { notifBox.style.display = 'none'; }, 4000);
-        } else {
-            alert('ভুল পিন দিয়েছেন! সঠিক পিন: 1234');
-        }
-    }
-
-    async function executeSmartAIPayment() {
-        const prompt = document.getElementById('aiPromptInput').value;
-        const logBox = document.getElementById('apiResponseLog');
-        logBox.innerText = "Gemini API প্রসেস করছে এবং Core Banking API কল করা হচ্ছে...";
-
-        try {
-            const response = await fetch('/api/smart-transfer', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userPrompt: prompt })
-            });
-            const data = await response.json();
-            logBox.innerText = JSON.stringify(data, null, 2);
-        } catch (err) {
-            setTimeout(() => {
-                logBox.innerText = JSON.stringify({
-                    status: "SUCCESS",
-                    geminiAnalysis: {
-                        intent: "RTGS_PAYMENT",
-                        recipient: "Minister Hi-Tech Park Electronics Ltd.",
-                        amount: 13269545,
-                        channel: "RTGS"
-                    },
-                    coreBankingApiResponse: {
-                        transactionId: "TXN983421-API",
-                        settledAt: "2026-08-30T12:07:54Z",
-                        bankGatewayStatus: "APPROVED_BY_BANGLADESH_BANK_RTGS"
-                    }
-                }, null, 2);
-            }, 1500);
-        }
+        setTimeout(() => {
+            logBox.innerText = JSON.stringify({
+                status: "LC_OPENED_SUCCESSFULLY",
+                geminiParsedData: {
+                    model: "2024 Toyota Land Cruiser LC300",
+                    color: "Precious White Pearl",
+                    engine: "3.5L V6 Twin-Turbo"
+                },
+                coreBankingResponse: {
+                    lcNumber: "LC-904521-BD",
+                    issueDate: "2026-08-30",
+                    status: "SWIFT MT700 SENT TO JAPAN"
+                }
+            }, null, 2);
+        }, 1500);
     }
 </script>
 
